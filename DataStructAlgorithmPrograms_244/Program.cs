@@ -20,19 +20,18 @@ namespace DataStructAlgorithmPrograms_244
             //Console.WriteLine(result);
             //Console.ReadLine();
 
+
             //BubbleSort bubbleSort = new BubbleSort();
             //bubbleSort.CheckBubbleSort();
             //Console.ReadLine();
 
-            int[] Array = { 2, 8, 9, 5, 6, 98, 45 };//Accept Array Value For Sorting
-            Console.WriteLine("Before Sort Array Is");
-            foreach (int i in Array)//Print Before Sort Elements
-            {
-                Console.WriteLine(i);
-            }
 
-            InsertionSort.Sort(Array);//Call Sort Function
-            InsertionSort.DisplayArray(Array);//Call Display Function0
+            Console.WriteLine("Enter The First Word");
+            string word1 = Console.ReadLine();
+            Console.WriteLine("Enter The Second Word");
+            string word2 = Console.ReadLine();
+            AnagramDetection.Anagram(word1, word2);//Pass Values To Function
+            Console.ReadLine();
         }
     }
 }
