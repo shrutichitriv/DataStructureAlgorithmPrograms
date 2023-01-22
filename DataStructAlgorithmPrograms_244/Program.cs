@@ -26,12 +26,14 @@ namespace DataStructAlgorithmPrograms_244
             //Console.ReadLine();
 
 
-            Console.WriteLine("Enter The First Word");
-            string word1 = Console.ReadLine();
-            Console.WriteLine("Enter The Second Word");
-            string word2 = Console.ReadLine();
-            AnagramDetection.Anagram(word1, word2);//Pass Values To Function
-            Console.ReadLine();
+            //Console.WriteLine("Enter The First Word");
+            //string word1 = Console.ReadLine();
+            //Console.WriteLine("Enter The Second Word");
+            //string word2 = Console.ReadLine();
+            //AnagramDetection.Anagram(word1, word2);//Pass Values To Function
+            //Console.ReadLine();
+
+            PrimeNumber.Prime();
         }
     }
 }
