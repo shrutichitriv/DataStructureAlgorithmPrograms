@@ -4,74 +4,47 @@ namespace DataStructAlgorithmPrograms_244
 {
     internal class Program
     {
-        static void Merge(int[] arr, int low, int mid, int high)
+        //Function for swapping the characters at position I with character at position j  
+        public static String swapString(String a, int i, int j)
         {
-            int[] tempArr = new int[arr.Length];
-
-            int left1 = 0;
-            int temp = 0;
-
-            int total = 0;
-            int loop = 0;
-
-            left1 = (mid - 1);
-            temp = low;
-            total = (high - low + 1);
-
-            while ((low <= left1) && (mid <= high))
-            {
-                if (arr[low] <= arr[mid])
-                    tempArr[temp++] = arr[low++];
-                else
-                    tempArr[temp++] = arr[mid++];
-            }
-            while (low <= left1)
-                tempArr[temp++] = arr[low++];
-            while (mid <= high)
-                tempArr[temp++] = arr[mid++];
-
-            for (loop = 0; loop < total; loop++)
-            {
-                arr[high] = tempArr[high];
-                high--;
-            }
-
+            char[] b = a.ToCharArray();
+            char ch;
+            ch = b[i];
+            b[i] = b[j];
+            b[j] = ch;
+            //Converting characters from array into single string  
+            return string.Join("", b);
         }
-        static void Sort(int[] arr, int low, int high)
+
+        //Function for generating different permutations of the string  
+        public static void generatePermutation(String str, int start, int end)
         {
-            int mid = 0;
-
-            if (high > low)
+            //Prints the permutations  
+            if (start == end - 1)
+                Console.WriteLine(str);
+            else
             {
-                mid = (high + low) / 2;
-
-                Sort(arr, low, mid);
-                Sort(arr, (mid + 1), high);
-
-                Merge(arr, low, (mid + 1), high);
-
+                for (int i = start; i < end; i++)
+                {
+                    //Swapping the string by fixing a character  
+                    str = swapString(str, start, i);
+                    //Recursively calling function generatePermutation() for rest of the characters   
+                    generatePermutation(str, start + 1, end);
+                    //Backtracking and swapping the characters again.  
+                    str = swapString(str, start, i);
+                }
             }
         }
-        static void Main(string[] args)
+
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Data Structure Algorithm Problems");
-
-            int[] arr = { 32, 18, 27, 65, 12, 41, 22, 26, 44 };
-
-            int length = 0;
-            int loop = 0;
-
-            length = arr.Length;
-
-            Sort(arr, 0, length - 1);
-
-            Console.WriteLine("Sorted Array:");
-            for (loop = 0; loop < arr.Length; loop++)
-                Console.Write(arr[loop] + " ");
-            Console.WriteLine();
-
+            String str = "ABC";
+            int len = str.Length;
+            Console.WriteLine("All the permutations of the string are: ");
+            generatePermutation(str, 0, len);
 
         }
     }
 }
+
 
